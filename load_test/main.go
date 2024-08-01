@@ -16,7 +16,7 @@ const (
 	numClients        = 1000
 	messagesPerClient = 500
 	message           = "Teste de carga"
-	path_result       = "result/node-optimized"
+	path_result       = "result/node"
 )
 
 // Função para criar um cliente e enviar mensagens
