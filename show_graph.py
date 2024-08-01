@@ -14,12 +14,11 @@ def read_results(directory):
                 results[port] = data['average_response_time']
     return results
 
-def plot_results(go_results, node_results,node_optimized_results):
+def plot_results(go_results, node_results):
     ports = sorted(go_results.keys())
     go_times = [go_results[port] for port in ports]
     node_times = [node_results.get(port, float('inf')) for port in ports]
-    #node_optimized_times = [node_optimized_results.get(port, float('inf')) for port in ports]
-
+    
 
     plt.figure(figsize=(12, 6))
 
@@ -39,13 +38,11 @@ def main():
     # Diretórios dos resultados
     go_dir = 'result/go'
     node_dir = 'result/node'
-    node_optimized_dir = 'result/node-optimized'
     # Ler resultados
     go_results = read_results(go_dir)
     node_results = read_results(node_dir)
-    node_optimized_results = read_results(node_optimized_dir)
     # Criar gráfico
-    plot_results(go_results, node_results,node_optimized_results)
+    plot_results(go_results, node_results)
 
 if __name__ == "__main__":
     main()
